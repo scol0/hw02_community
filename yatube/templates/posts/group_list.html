@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
-{% block title %} Записи сообщества. {% endblock %}
+{% block title %} Записи сообщества блогеров. {% endblock %}
 {% block content %}
-    {% for post in posts %}
+    <h1>
+      <p>{% for post in posts %}</p>
+    </h1>  
+    <article>
       <ul>
         <li>
           Автор: {{ post.author.get_full_name }}
@@ -10,9 +13,10 @@
           Дата публикации: {{ post.pub_date|date:'d E Y' }}
         </li>
       </ul>
-      <p>{{ post.text }}</p>    
+      <p>{{ post.text|linebreaks }}</p>
+    </article>
       {% if post.group %}
-      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+        <a href="{% url 'posts:group_list' post.group.slug %}">все записи</a>
       {% endif %}
       {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block title %} Записи сообщества блогеров. {% endblock %}
 {% block content %}
-    <h1>
-      <p>{% for post in posts %}</p>
-    </h1>  
+    <h1>{{ group.title }}</h1>
+    <p>{{ group.description }}</p>
+      {% for post in posts %}  
     <article>
       <ul>
         <li>
@@ -19,5 +19,5 @@
         <a href="{% url 'posts:group_list' post.group.slug %}">все записи</a>
       {% endif %}
       {% if not forloop.last %}<hr>{% endif %}
-    {% endfor %}
-    {% endblock %}
+{% endfor %}
+{% endblock %}

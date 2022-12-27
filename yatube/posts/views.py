@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Group, Post
 
-count = 10
+PAGE_SIZE = 10
 
 
 def index(request):
@@ -15,7 +15,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all()[:count]
+    posts = group.posts.all()[:PAGE_SIZE]
     context = {
         'group': group,
         'posts': posts,

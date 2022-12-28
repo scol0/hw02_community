@@ -20,5 +20,5 @@
       <a href="{% url 'posts:group_list' post.group.slug %}">все записи</a>
     {% endif %}
     {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+  {% endfor %}
 {% endblock %}

@@ -6,7 +6,7 @@ PAGE_SIZE = 10
 
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:10]
+    posts = Post.objects.order_by('-pub_date')[:PAGE_SIZE]
     context = {
         'posts': posts,
     }
